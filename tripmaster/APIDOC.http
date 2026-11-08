@@ -1,0 +1,49 @@
+###
+POST http://127.0.0.1:8000/register/
+Content-Type: application/json
+
+{
+    "username" : "abhijith",
+    "email" : "abhijith@gmail.com",
+    "password" : "abhijith@123"
+}
+
+
+###
+GET http://127.0.0.1:8000/trips/
+Accept: application/json
+Authorization: Basic abhijith:abhijith@123
+
+
+###
+POST http://127.0.0.1:8000/trips/
+Content-Type: application/json
+Authorization: Basic abhijith:abhijith@123
+
+
+{
+    "title" : "Trip to Barcelona",
+    "start_date" : "2026-12-05",
+    "destination" : "Barcelona"
+}
+
+
+###
+GET http://127.0.0.1:8000/trips/5/
+Accept: application/json
+Authorization: Basic abhijith:abhijith@123
+
+###
+PUT http://127.0.0.1:8000/trips/5/
+Content-Type: application/json
+#Authorization: Basic abhijith:abhijith@123
+
+{
+    "title": "Trip to Madrid",
+    "start_date": "2027-11-08",
+    "destination": "Madrid"
+}
+
+###
+DELETE http://127.0.0.1:8000/trips/4/
+Authorization: Basic akhil:akhil@123
