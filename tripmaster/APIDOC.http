@@ -1,3 +1,5 @@
+
+#registering a user
 ###
 POST http://127.0.0.1:8000/register/
 Content-Type: application/json
@@ -8,13 +10,13 @@ Content-Type: application/json
     "password" : "abhijith@123"
 }
 
-
+#to get ALL the trips created by a registered user
 ###
 GET http://127.0.0.1:8000/trips/
 Accept: application/json
 Authorization: Basic abhijith:abhijith@123
 
-
+#to create trips 
 ###
 POST http://127.0.0.1:8000/trips/
 Content-Type: application/json
@@ -22,17 +24,20 @@ Authorization: Basic abhijith:abhijith@123
 
 
 {
-    "title" : "Trip to Barcelona",
+    "title" : "Trip to Dortmund",
     "start_date" : "2026-12-05",
-    "destination" : "Barcelona"
+    "destination" : "Dortmund"
 }
 
 
+#to get a particular trip
 ###
-GET http://127.0.0.1:8000/trips/5/
+GET http://127.0.0.1:8000/trips/6/
 Accept: application/json
 Authorization: Basic abhijith:abhijith@123
 
+
+#edit trips
 ###
 PUT http://127.0.0.1:8000/trips/5/
 Content-Type: application/json
@@ -44,6 +49,36 @@ Content-Type: application/json
     "destination": "Madrid"
 }
 
+
+#deleting a trip
 ###
 DELETE http://127.0.0.1:8000/trips/4/
 Authorization: Basic akhil:akhil@123
+
+#get all users
+###
+GET http://127.0.0.1:8000/users/
+Accept: application/json
+
+#to get members in a trip
+###
+GET http://127.0.0.1:8000/trips/5/members/
+Accept: application/json
+Authorization: Basic abhijith:abhijith@123
+
+
+#adding registered memebrs in a trip
+###
+POST  http://127.0.0.1:8000/trips/5/members/
+Content-Type:  application/json
+Authorization: Basic abhijith:abhijith@123
+
+{
+    "username":"anandakrishnan"
+}
+
+
+#deleting members of trip
+###
+DELETE http://127.0.0.1:8000/trips/5/members/1/
+Authorization: Basic abhijith:abhijith@123
